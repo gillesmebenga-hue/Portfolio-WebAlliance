@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - WebAlliance Portfolio</title>
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="login-container" id="loginScreen">
+        <div class="login-box">
+<div class="login-logo">
+                <img src="logo.svg" alt="Logo" style="height: 60px;">
+            </div>
+            <h2>Administration</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <input type="password" id="adminPassword" placeholder="Mot de passe" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Connexion</button>
+            </form>
+            <p id="loginError" class="error-message"></p>
+        </div>
+    </div>
+
+    <div class="admin-container" id="adminPanel" style="display: none;">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+<h2><img src="logo.svg" alt="Logo" style="height: 40px; vertical-align: middle; margin-right: 10px;"> Admin</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-section="general">
+                    <i class="fas fa-home"></i> <span>Général</span>
+                </a>
+                <a href="#" class="nav-item" data-section="about">
+                    <i class="fas fa-user"></i> <span>À propos</span>
+                </a>
+                <a href="#" class="nav-item" data-section="services">
+                    <i class="fas fa-cube"></i> <span>Services</span>
+                </a>
+                <a href="#" class="nav-item" data-section="projects">
+                    <i class="fas fa-folder"></i> <span>Projets</span>
+                </a>
+                <a href="#" class="nav-item" data-section="skills">
+                    <i class="fas fa-code"></i> <span>Compétences</span>
+                </a>
+                <a href="#" class="nav-item" data-section="contact">
+                    <i class="fas fa-envelope"></i> <span>Contact</span>
+                </a>
+                <a href="#" class="nav-item" data-section="footer">
+                    <i class="fas fa-shoe-prints"></i> <span>Footer</span>
+                </a>
+                <a href="#" class="nav-item" data-section="analytics">
+                    <i class="fas fa-chart-line"></i> <span>Analytics</span>
+                </a>
+                <a href="index.html" class="nav-item">
+                    <i class="fas fa-external-link-alt"></i> <span>Voir le site</span>
+                </a>
+                <a href="#" class="nav-item" onclick="logout(); return false;">
+                    <i class="fas fa-sign-out-alt"></i> <span>Déconnexion</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <section id="general" class="admin-section active">
+                <h1>Paramètres Généraux</h1>
+                <form id="generalForm">
+                    <div class="form-group">
+                        <label>Nom du Portfolio</label>
+                        <input type="text" name="logo" placeholder="WebAlliance">
+                    </div>
+                    <div class="form-group">
+                        <label>Titre Hero</label>
+                        <input type="text" name="heroTitle" placeholder="Transformez vos idées...">
+                    </div>
+                    <div class="form-group">
+                        <label>Sous-titre Hero</label>
+                        <textarea name="heroSubtitle" rows="2" placeholder="Votre texte..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sauvegarder</button>
+                </form>
+            </section>
+
+            <section id="about" class="admin-section">
+                <h1>Section À propos</h1>
+                <form id="aboutForm">
+                    <div class="form-group">
+                        <label>Titre</label>
+                        <input type="text" name="aboutTitle" placeholder="WebAlliance">
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea name="aboutText" rows="4" placeholder="Description..."></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Statistique 1 - Chiffre</label>
+                            <input type="text" name="stat1Number" placeholder="5+">
+                        </div>
+                        <div class="form-group">
+                            <label>Statistique 1 - Label</label>
+                            <input type="text" name="stat1Label" placeholder="Années d'expérience">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Statistique 2 - Chiffre</label>
+                            <input type="text" name="stat2Number" placeholder="50+">
+                        </div>
+                        <div class="form-group">
+                            <label>Statistique 2 - Label</label>
+                            <input type="text" name="stat2Label" placeholder="Projets réalisés">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Statistique 3 - Chiffre</label>
+                            <input type="text" name="stat3Number" placeholder="30+">
+                        </div>
+                        <div class="form-group">
+                            <label>Statistique 3 - Label</label>
+                            <input type="text" name="stat3Label" placeholder="Clients satisfaits">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sauvegarder</button>
+                </form>
+            </section>
+
+            <section id="services" class="admin-section">
+                <h1>Gestion des Services</h1>
+                <div id="servicesList" class="items-list"></div>
+                <button class="btn btn-secondary" id="addService">
+                    <i class="fas fa-plus"></i> Ajouter un service
+                </button>
+            </section>
+
+            <section id="projects" class="admin-section">
+                <h1>Gestion des Projets</h1>
+                <div id="projectsList" class="items-list"></div>
+                <button class="btn btn-secondary" id="addProject">
+                    <i class="fas fa-plus"></i> Ajouter un projet
+                </button>
+            </section>
+
+            <section id="skills" class="admin-section">
+                <h1>Gestion des Compétences</h1>
+                <div id="skillsList" class="items-list"></div>
+                <button class="btn btn-secondary" id="addSkill">
+                    <i class="fas fa-plus"></i> Ajouter une compétence
+                </button>
+            </section>
+
+            <section id="contact" class="admin-section">
+                <h1>Informations de Contact</h1>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="contactEmail" placeholder="contact@weballiance.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Téléphone</label>
+                        <input type="text" name="contactPhone" placeholder="+33 1 23 45 67 89">
+                    </div>
+                    <div class="form-group">
+                        <label>Adresse</label>
+                        <input type="text" name="contactAddress" placeholder="Paris, France">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sauvegarder</button>
+                </form>
+            </section>
+
+            <section id="footer" class="admin-section">
+                <h1>Pied de page</h1>
+                <form id="footerForm">
+                    <div class="form-group">
+                        <label>Logo Footer</label>
+                        <input type="text" name="footerLogo" placeholder="WebAlliance">
+                    </div>
+                    <div class="form-group">
+                        <label>Texte Footer</label>
+                        <input type="text" name="footerText" placeholder="Votre partenaire...">
+                    </div>
+                    <div class="form-group">
+                        <label>Copyright</label>
+                        <input type="text" name="footerCopyright" placeholder="WebAlliance">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sauvegarder</button>
+                </form>
+            </section>
+
+            <section id="analytics" class="admin-section">
+                <h1>Statistiques du Site</h1>
+                <div class="analytics-overview">
+                    <div class="analytics-card">
+                        <div class="analytics-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="analytics-info">
+                            <h3 id="totalVisitors">0</h3>
+                            <p>Visiteurs uniques</p>
+                        </div>
+                    </div>
+                    <div class="analytics-card">
+                        <div class="analytics-icon">
+                            <i class="fas fa-envelope-open-text"></i>
+                        </div>
+                        <div class="analytics-info">
+                            <h3 id="totalLeads">0</h3>
+                            <p>Leads (messages)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2 style="margin-top: 30px; margin-bottom: 20px;">Visites récentes</h2>
+                <div id="visitsList" class="analytics-table"></div>
+                
+                <h2 style="margin-top: 30px; margin-bottom: 20px;">Messages reçus</h2>
+                <div id="messagesList" class="analytics-table"></div>
+            </section>
+        </main>
+    </div>
+
+    <div class="modal" id="itemModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Ajouter un élément</h2>
+                <button class="modal-close" onclick="closeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="modalForm">
+                <div id="modalFields"></div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()">Annuler</button>
+                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
+

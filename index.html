@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebAlliance - Solutions Digitales Innovantes</title>
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+<a href="#" class="logo">
+                <img src="logo.svg" alt="WebAlliance" style="height: 50px; width: auto;">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 data-field="heroTitle">Transformez vos idées en réalité digitale</h1>
+            <p data-field="heroSubtitle">Nous créons des solutions web innovantes pour propulser votre entreprise vers le succès.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Contactez-nous</a>
+                <a href="#projects" class="btn btn-secondary">Nos réalisations</a>
+            </div>
+        </div>
+        <div class="hero-background">
+            <div class="hero-shape"></div>
+            <div class="hero-shape"></div>
+            <div class="hero-shape"></div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">À propos de <span data-field="aboutTitle">WebAlliance</span></h2>
+            <div class="about-content">
+                <div class="about-text" data-field="aboutText">
+                    <p>WebAlliance est une startup innovante spécialisée dans le développement web et les solutions digitales.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-field="stat1Number">5+</span>
+                        <span class="stat-label" data-field="stat1Label">Années d'expérience</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-field="stat2Number">50+</span>
+                        <span class="stat-label" data-field="stat2Label">Projets réalisés</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-field="stat3Number">30+</span>
+                        <span class="stat-label" data-field="stat3Label">Clients satisfaits</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Nos <span>Services</span></h2>
+            <div class="services-grid" id="servicesGrid"></div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Nos <span>Projets</span></h2>
+            <div class="projects-grid" id="projectsGrid"></div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Nos <span>Compétences</span></h2>
+            <div class="skills-container" id="skillsContainer"></div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contactez-<span>-nous</span></h2>
+            <div class="contact-content">
+                <div class="contact-info" data-field="contactInfo"></div>
+                <form class="contact-form" id="contactForm">
+                    <input type="text" name="name" placeholder="Votre nom" required>
+                    <input type="email" name="email" placeholder="Votre email" required>
+                    <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo" data-field="footerLogo">WebAlliance</div>
+                <p data-field="footerText">Votre partenaire pour la transformation digitale.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 <span data-field="footerCopyright">WebAlliance</span>. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
+
