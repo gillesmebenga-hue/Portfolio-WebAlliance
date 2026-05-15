@@ -48,7 +48,7 @@
 - [ ] Créer repo GitHub 'portfolio-weballiance'
 - [ ] Pusher les fichiers
 - [ ] Activer GitHub Pages
-- [ ] URL live: https://gillesmebenga-hue.github.io/portfolio-weballiance
+- [ ] URL live: https://gillesmebenga-hue.github.io/Portfolio-WebAlliance
 
 **Admin Password: admin123**  
 **Note**: localStorage est local au navigateur. Pour prod, exporter données depuis admin.
