@@ -243,21 +243,31 @@ function initContactForm() {
         e.preventDefault();
         
         const formData = new FormData(form);
-        const data = {
-            name: formData.get('name'),
-            email: formData.get('email'),
-            message: formData.get('message'),
-            date: new Date().toISOString()
-        };
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const message = formData.get('message');
         
+        // IMPORTANT : un simple site HTML/JS ne peut pas envoyer d’email “en dur” vers ta boîte.
+        // Le plus simple côté front : ouvrir un mail via mailto: pré-rempli.
+        // Pour un envoi automatique vers ta boîte, il faut un backend (Node/PHP) ou un service (SendGrid, Formspree...).
+        const to = localStorage.getItem('contactToEmail') || 'contact@weballiance.com';
+        const subject = encodeURIComponent(`Nouveau message de ${name}`);
+        const body = encodeURIComponent(`Nom: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+        const mailto = `mailto:${to}?subject=${subject}&body=${body}`;
+
+        // Optionnel : sauvegarde locale (debug / historique)
+        const data = { name, email, message, date: new Date().toISOString() };
         const messages = JSON.parse(localStorage.getItem('contactMessages') || '[]');
         messages.push(data);
         localStorage.setItem('contactMessages', JSON.stringify(messages));
-        
-        alert('Message envoyé avec succès! Nous vous répondrons bientôt.');
+
+        // Ouvre la boîte mail de l’utilisateur avec le message pré-rempli vers ta destination
+        window.location.href = mailto;
+        alert('Ouverture de votre messagerie...');
         form.reset();
     });
 }
+
 
 function initPortfolio() {
     const data = getPortfolioData();
