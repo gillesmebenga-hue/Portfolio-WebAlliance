@@ -1,9 +1,10 @@
-# Portfolio WebAlliance - Plan de création
+# Portfolio WebAlliance - Plan de création et Déploiement
 
 ## Objectifs
 - Portfolio professionnel et esthétique pour startup
 - Modifiable via panel admin avec localStorage
 - Sections: À propos, Services, Projets, Compétences, Contact
+- ✅ **DÉPLOIÉ** sur GitHub Pages (en cours)
 
 ## Étapes de réalisation
 
@@ -42,3 +43,12 @@
 - [x] Contenu initial pour démonstration
 - [x] Structure JSON pour localStorage
 
+## 🚀 Déploiement
+- [ ] Initialiser Git repo
+- [ ] Créer repo GitHub 'portfolio-weballiance'
+- [ ] Pusher les fichiers
+- [ ] Activer GitHub Pages
+- [ ] URL live: https://username.github.io/portfolio-weballiance
+
+**Admin Password: admin123**  
+**Note**: localStorage est local au navigateur. Pour prod, exporter données depuis admin.

@@ -144,66 +144,79 @@ function loadAllData() {
 // Form submissions
 function initForms() {
     // General form
-    document.getElementById('generalForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        var formData = new FormData(e.target);
-        var data = getPortfolioData();
-        
-        data.logo = formData.get('logo');
-        data.heroTitle = formData.get('heroTitle');
-        data.heroSubtitle = formData.get('heroSubtitle');
-        
-        savePortfolioData(data);
-        showToast('Parametres generaux sauvegardes!');
-    });
+    var generalForm = document.getElementById('generalForm');
+    if (generalForm) {
+        generalForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var formData = new FormData(e.target);
+            var data = getPortfolioData();
+            
+            data.logo = formData.get('logo');
+            data.heroTitle = formData.get('heroTitle');
+            data.heroSubtitle = formData.get('heroSubtitle');
+            
+            savePortfolioData(data);
+            showToast('Parametres generaux sauvegardes!');
+        });
+    }
     
     // About form
-    document.getElementById('aboutForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        var formData = new FormData(e.target);
-        var data = getPortfolioData();
-        
-        data.aboutTitle = formData.get('aboutTitle');
-        data.aboutText = formData.get('aboutText');
-        data.stat1Number = formData.get('stat1Number');
-        data.stat1Label = formData.get('stat1Label');
-        data.stat2Number = formData.get('stat2Number');
-        data.stat2Label = formData.get('stat2Label');
-        data.stat3Number = formData.get('stat3Number');
-        data.stat3Label = formData.get('stat3Label');
-        
-        savePortfolioData(data);
-        showToast('Section a propos sauvegardee!');
-    });
+    var aboutForm = document.getElementById('aboutForm');
+    if (aboutForm) {
+        aboutForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var formData = new FormData(e.target);
+            var data = getPortfolioData();
+            
+            data.aboutTitle = formData.get('aboutTitle');
+            data.aboutText = formData.get('aboutText');
+            data.stat1Number = formData.get('stat1Number');
+            data.stat1Label = formData.get('stat1Label');
+            data.stat2Number = formData.get('stat2Number');
+            data.stat2Label = formData.get('stat2Label');
+            data.stat3Number = formData.get('stat3Number');
+            data.stat3Label = formData.get('stat3Label');
+            
+            savePortfolioData(data);
+            showToast('Section a propos sauvegardee!');
+        });
+    }
     
     // Contact form
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        var formData = new FormData(e.target);
-        var data = getPortfolioData();
-        
-        data.contactEmail = formData.get('contactEmail');
-        data.contactPhone = formData.get('contactPhone');
-        data.contactAddress = formData.get('contactAddress');
-        
-        savePortfolioData(data);
-        showToast('Informations de contact sauvegardees!');
-    });
+    var contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var formData = new FormData(e.target);
+            var data = getPortfolioData();
+            
+            data.contactEmail = formData.get('contactEmail');
+            data.contactPhone = formData.get('contactPhone');
+            data.contactAddress = formData.get('contactAddress');
+            
+            savePortfolioData(data);
+            showToast('Informations de contact sauvegardees!');
+        });
+    }
     
     // Footer form
-    document.getElementById('footerForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        var formData = new FormData(e.target);
-        var data = getPortfolioData();
-        
-        data.footerLogo = formData.get('footerLogo');
-        data.footerText = formData.get('footerText');
-        data.footerCopyright = formData.get('footerCopyright');
-        
-        savePortfolioData(data);
-        showToast('Footer sauvegarde!');
-    });
+    var footerForm = document.getElementById('footerForm');
+    if (footerForm) {
+        footerForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var formData = new FormData(e.target);
+            var data = getPortfolioData();
+            
+            data.footerLogo = formData.get('footerLogo');
+            data.footerText = formData.get('footerText');
+            data.footerCopyright = formData.get('footerCopyright');
+            
+            savePortfolioData(data);
+            showToast('Footer sauvegarde!');
+        });
+    }
 }
+
 
 // Render services list
 function renderServicesList() {
@@ -394,11 +407,17 @@ function init() {
     initForms();
     initModalForm();
     
-    // Add button event listeners
-    document.getElementById('addService').addEventListener('click', addService);
-    document.getElementById('addProject').addEventListener('click', addProject);
-    document.getElementById('addSkill').addEventListener('click', addSkill);
+    // Add button event listeners (guard for null)
+    var addServiceBtn = document.getElementById('addService');
+    if (addServiceBtn) addServiceBtn.addEventListener('click', addService);
+
+    var addProjectBtn = document.getElementById('addProject');
+    if (addProjectBtn) addProjectBtn.addEventListener('click', addProject);
+
+    var addSkillBtn = document.getElementById('addSkill');
+    if (addSkillBtn) addSkillBtn.addEventListener('click', addSkill);
 }
+
 
 // Run on DOM ready
 document.addEventListener('DOMContentLoaded', init);
