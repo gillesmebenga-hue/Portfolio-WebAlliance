@@ -250,7 +250,7 @@ function initContactForm() {
         // IMPORTANT : un simple site HTML/JS ne peut pas envoyer d’email “en dur” vers ta boîte.
         // Le plus simple côté front : ouvrir un mail via mailto: pré-rempli.
         // Pour un envoi automatique vers ta boîte, il faut un backend (Node/PHP) ou un service (SendGrid, Formspree...).
-        const to = localStorage.getItem('contactToEmail') || 'contact@weballiance.com';
+        const to = localStorage.getItem('contactToEmail') || 'gillesmebenga@gmail.com';
         const subject = encodeURIComponent(`Nouveau message de ${name}`);
         const body = encodeURIComponent(`Nom: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
         const mailto = `mailto:${to}?subject=${subject}&body=${body}`;
